@@ -11,23 +11,23 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'ca
 db = SQLAlchemy(app)
 
 def get_all_products():
-    response = requests.get('http://127.0.0.1:5000/products')
+    response = requests.get('https://rest-assignment-2.onrender.com/products')
     data = response.json()
     return data
 
 def get_product(product_id):
-    response = requests.get(f'http://127.0.0.1:5000/products/{product_id}')
+    response = requests.get(https://rest-assignment-2.onrender.com/products/{product_id}')
     data = response.json()
     return data
 
 def add_product_to_cart(user_id, product_id, quantity):
-    endpoint = f'http://127.0.0.1:6463/cart/{user_id}/add/{product_id}'
+    endpoint = https://rest-assignment-2.onrender.com/cart/{user_id}/add/{product_id}'
     data = {"quantity": quantity}
     response = requests.post(endpoint, json=data)
     return response.status_code
 
 def remove_product_from_cart(user_id, product_id, quantity):
-    endpoint = f'http://127.0.0.1:6463/cart/{user_id}/remove/{product_id}'
+    endpoint = https://rest-assignment-2.onrender.com/cart/{user_id}/remove/{product_id}'
     data = {"quantity": quantity}
     response = requests.post(endpoint, json=data)
     return response.status_code
@@ -60,4 +60,4 @@ if __name__ == '__main__':
         print("Failed to remove the product from the cart")
         
 if __name__ == '__main__':
-    app.run(debug=True, port=6463)
+   
